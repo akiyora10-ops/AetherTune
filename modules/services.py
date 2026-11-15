@@ -1,0 +1,1 @@
+SERVICES = ['DiagTrack','SysMain','XboxNetApiSvc']
