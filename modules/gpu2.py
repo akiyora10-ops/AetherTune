@@ -1,0 +1,1 @@
+GPU_VENDORS = ['AMD','NVIDIA','Intel']
