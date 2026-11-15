@@ -1,0 +1,9 @@
+/* AetherTune website styles */
+:root { --bg: #05070d; --fg: #e6e9f2; --muted: #94a3b8; --accent: #a855f7; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.glass { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); backdrop-filter: blur(8px); border-radius: 18px; }
+.btn { transition: transform .2s ease, box-shadow .2s ease; }
+.btn:hover { transform: translateY(-2px); }
+@media (max-width: 768px) { section { padding: 80px 24px; } }
