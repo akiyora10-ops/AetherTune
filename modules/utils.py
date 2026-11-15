@@ -2,8 +2,9 @@ import psutil, subprocess, platform, winreg, ctypes, os
 
 def run_ps(cmd):
     try:
-        r = subprocess.run(["powershell", "-NoProfile", "-Command", cmd],
-                           capture_output=True, text=True, timeout=20)
+        r = subprocess.run(["powershell", "-NoProfile", "-WindowStyle", "Hidden", "-Command", cmd],
+                           capture_output=True, text=True, timeout=20,
+                           creationflags=0x08000000)
         return r.stdout.strip(), r.stderr.strip()
     except Exception as e:
         return "", str(e)
@@ -61,7 +62,7 @@ def get_active_power_plan():
     return m.group(1) if m else ""
 
 def set_power_plan(guid):
-    subprocess.run(["powercfg", "/setactive", guid], capture_output=True)
+    subprocess.run(["powercfg", "/setactive", guid], capture_output=True, creationflags=0x08000000)
 
 def reg_set(path, name, value, kind=winreg.REG_DWORD):
     root, sub = _split(path)
@@ -96,7 +97,8 @@ def _split(path):
 
 def run_cmd(cmd):
     try:
-        r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=60)
+        r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=60,
+                           creationflags=0x08000000)
         return r.returncode, r.stdout, r.stderr
     except Exception as e:
         return -1, "", str(e)
