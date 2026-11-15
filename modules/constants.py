@@ -1,0 +1,3 @@
+APP_NAME = 'AetherTune'
+APP_VERSION = '0.2.0'
+DEFAULT_INTERVAL = 2
