@@ -41,7 +41,9 @@ class RegistryTab(ctk.CTkFrame):
         ctk.CTkButton(toolbar, text="Restore Backup", command=self.restore).pack(side="left", padx=4)
         ctk.CTkButton(toolbar, text="Create System Restore Point", command=self.restore_point).pack(side="left", padx=4)
 
-        self.scroll = ctk.CTkScrollableFrame(self, height=520)
+        self.status = ctk.CTkLabel(self, text="", text_color="gray")
+        self.status.pack(anchor="w", pady=2)
+        self.scroll = ctk.CTkScrollableFrame(self, height=500)
         self.scroll.pack(fill="both", expand=True, pady=6)
 
         cats = {}
@@ -89,8 +91,11 @@ class RegistryTab(ctk.CTkFrame):
         ctk.CTkButton(right, text="Revert", width=70, command=revert).pack(side="left", padx=3)
 
     def _toast(self, msg):
-        # simple print + status label
         print(msg)
+        try:
+            self.status.configure(text=msg)
+        except Exception:
+            pass
 
     def backup(self):
         data = {}

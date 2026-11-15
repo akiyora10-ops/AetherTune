@@ -57,6 +57,6 @@ def build(parent):
     dc = ctk.CTkFrame(frame, corner_radius=12)
     dc.pack(fill="x", pady=6)
     ctk.CTkLabel(dc, text="Windows Disk Cleanup", font=ctk.CTkFont(size=16, weight="bold")).pack(anchor="w", padx=16, pady=(12,6))
-        ctk.CTkButton(dc, text="Run cleanmgr", command=lambda: subprocess.Popen("cleanmgr", creationflags=0x08000000)).pack(anchor="w", padx=16, pady=6)
+    ctk.CTkButton(dc, text="Run cleanmgr", command=lambda: subprocess.Popen("cleanmgr", creationflags=0x08000000)).pack(anchor="w", padx=16, pady=6)
 
     return frame

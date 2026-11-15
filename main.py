@@ -2,7 +2,7 @@ import customtkinter as ctk
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from modules import dashboard, monitor, gpu, registry, performance, startup, cleaner, wallpaper, network, settings
+from modules import dashboard, monitor, gpu, registry, performance, startup, cleaner, wallpaper, network, settings, debloat
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -42,6 +42,7 @@ class AetherTune(ctk.CTk):
             ("Cleaner", cleaner.build),
             ("Wallpaper", wallpaper.build),
             ("Network", network.build),
+            ("Debloat", debloat.build),
             ("Settings", settings.build),
         ]
         r = 2
